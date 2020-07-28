@@ -1,0 +1,14 @@
+<%
+String labelName = tools.getParamValue("DisplayLabel");
+String pName = tools.getParamValue("PropNameToCopy");
+%>
+<pega:reference name="param.DisplayLabel" mode="display"/>
+&nbsp;
+<!--<input type ="text" value = "<%=labelName%>" readonly />-->
+<pega:when java='<%= tools.getParamAsBoolean(PropertyInfo.TYPE_TRUEFALSE, "DisplayRequired") %>'>
+<img src="webwb/requiredstar.gif" onclick = "CopyDown('U','<%=pName%>')" />
+ </pega:when>
+&nbsp;
+<img class="copydown1" width="20px" src="webwb/CellCopyDown.svg" title= "Copy Down values" onclick = "CopyDown('D','<%=pName%>')" />
+&nbsp;
+<img class="copydown2" width="20px" src="webwb/CellCopyRemove.svg" title= "Remove Copy Down values" onclick = "CopyDown('U','<%=pName%>')" />
