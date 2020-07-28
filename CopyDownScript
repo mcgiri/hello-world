@@ -1,0 +1,31 @@
+//Table Copy Down Scripts------ 
+  $.cdjQuery = function(act,cp){
+     var a= $(document).find("[name$="+cp+"]").closest("tr").length;
+     var b=$(document).find("[name$="+cp+"]").first().val();
+    var msg = 'No Message';
+    var dVal='';
+        if (act==='D')
+      {
+        msg='Do you want to copy down values?';
+        dVal=b;
+      }
+      if (act === 'U')
+      {
+        msg="Do you want to remove the values for all rows from row 2?";        
+      }
+       if (confirm(msg)) {
+ 
+    for (var i=1; i<a; i++)
+    {
+       $(document).find("[name$="+cp+"]").closest("tr").eq(i).find("[name$="+cp+"]").val(dVal);     
+     }
+       }
+
+};
+  function CopyDown(a,b){
+    //alert("started");
+      $.cdjQuery(a,b);
+   
+  }
+
+//End table copy down scripts
